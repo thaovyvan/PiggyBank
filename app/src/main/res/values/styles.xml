@@ -17,9 +17,14 @@
 
     <style name="MainTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:background">@color/grayish</item>
+        <item name="android:buttonBarStyle">@style/tStyle</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="tStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:background">@color/darkPinkish</item>
     </style>
 
 </resources>
