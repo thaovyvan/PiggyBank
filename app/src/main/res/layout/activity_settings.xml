@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/MainTheme"
+    tools:context=".settingsActivity">
+
+    <TextView
+        android:id="@+id/settings_TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textAlignment="center"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TableLayout
+        android:id="@+id/settings_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/settings_TextView">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/settings_timeIncrement"
+                android:text="Time Increment"/>
+
+            <Spinner
+                android:id="@+id/timeIncrementSpinner"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/updateSettingsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Settings"
+        android:background="@color/darkPinkish"
+        app:layout_constraintTop_toBottomOf="@id/settings_table"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
