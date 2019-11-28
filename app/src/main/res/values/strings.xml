@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">piggybank-app</string>
+    <string name="app_name">Piggy Bank</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>
