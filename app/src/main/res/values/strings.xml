@@ -2,4 +2,8 @@
     <string name="app_name">Piggy Bank</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="Back">Back</string>
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="picture_description">User\'s personal profile picture</string>
+    <string name="total_spent">Total Spent: </string>
 </resources>
