@@ -3,6 +3,7 @@ package com.example.piggybank_app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.EditText;
 
 public class welcomeActivity extends AppCompatActivity {
 

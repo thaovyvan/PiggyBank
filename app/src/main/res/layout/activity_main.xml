@@ -30,7 +30,7 @@
         android:id="@+id/username_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/username"
+        android:hint="username"
         app:layout_constraintTop_toBottomOf="@id/signInImageView"
         app:layout_constraintLeft_toLeftOf="@id/signInImageView"
         app:layout_constraintRight_toRightOf="@id/signInImageView"/>
@@ -39,7 +39,7 @@
         android:id="@+id/password_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/password"
+        android:hint="password"
         app:layout_constraintTop_toBottomOf="@id/username_editText"
         app:layout_constraintLeft_toLeftOf="@id/username_editText"
         app:layout_constraintRight_toRightOf="@id/username_editText"/>
@@ -49,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign in or Register"
+        android:onClick="signin_register"
         app:layout_constraintTop_toBottomOf="@id/password_editText"
         app:layout_constraintLeft_toLeftOf="@id/password_editText"
         app:layout_constraintRight_toRightOf="@id/password_editText"/>
