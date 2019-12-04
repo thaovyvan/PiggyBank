@@ -12,6 +12,7 @@
         <activity android:name=".summaryActivity"></activity>
         <activity android:name=".settingsActivity" />
         <activity android:name=".welcomeActivity" />
+        <activity android:name=".profileActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

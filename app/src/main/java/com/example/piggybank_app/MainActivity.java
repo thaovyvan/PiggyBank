@@ -14,11 +14,12 @@ public class MainActivity extends AppCompatActivity {
     EditText usernameEdit;
     EditText passwordEdit;
 
+    EditText usernameET, passwordET;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         usernameEdit = (EditText)findViewById(R.id.username_editText);
         passwordEdit = (EditText)findViewById(R.id.password_editText);
     }
