@@ -49,9 +49,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign in or Register"
+        android:onClick="signInRegister"
         app:layout_constraintTop_toBottomOf="@id/password_editText"
         app:layout_constraintLeft_toLeftOf="@id/password_editText"
-        app:layout_constraintRight_toRightOf="@id/password_editText"/>
+        app:layout_constraintRight_toRightOf="@id/password_editText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
