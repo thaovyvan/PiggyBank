@@ -24,6 +24,11 @@ public class welcomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToSummary(View view){
+        Intent intent = new Intent(this, summaryActivity.class);
+        startActivity(intent);
+    }
+
     private void setWelcomeMessage(String str){
         String txt = String.format("Welcome back %s!", str);
         welcomeMessage.setText(txt);
