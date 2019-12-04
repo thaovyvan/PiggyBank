@@ -31,6 +31,11 @@ public class profileActivity extends AppCompatActivity {
 
     }
 
+    private void setUsername(String str){
+        //should probably moved into onCreate once the app is further along
+        username.setText(str);
+    }
+
 
 
 }
