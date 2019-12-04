@@ -24,6 +24,19 @@
         app:layout_constraintLeft_toRightOf="@id/welcome_imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/welcome_goToSummary_button"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="Summary"
+        android:textAllCaps="true"
+        android:background="@color/darkPinkish"
+        android:textAlignment="center"
+        android:onClick="goToSettings"
+        app:layout_constraintTop_toBottomOf="@id/welcome_imageView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
     <TextView
         android:id="@+id/welcome_recentTransactions"
         android:layout_width="280dp"
@@ -32,7 +45,7 @@
         android:background="@color/white"
         android:textSize="20sp"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/welcome_imageView"
+        app:layout_constraintTop_toBottomOf="@id/welcome_goToSummary_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
@@ -47,7 +60,7 @@
 
     <Button
         android:id="@+id/settings_button"
-        android:layout_width="180dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:text="Settings"
         android:textAllCaps="true"
