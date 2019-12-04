@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/welcome_imageView"
-        android:layout_width="98dp"
-        android:layout_height="84dp"
-        android:src="@drawable/placeholder_image"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:src="@drawable/wilbur_placeholder"
         app:layout_constraintRight_toLeftOf="@id/welcome_textView"
         app:layout_constraintTop_toTopOf="parent" />
 
