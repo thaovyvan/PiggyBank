@@ -23,4 +23,9 @@ public class welcomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, settingsActivity.class);
         startActivity(intent);
     }
+
+    private void setWelcomeMessage(String str){
+        String txt = String.format("Welcome back %s!", str);
+        welcomeMessage.setText(txt);
+    }
 }
