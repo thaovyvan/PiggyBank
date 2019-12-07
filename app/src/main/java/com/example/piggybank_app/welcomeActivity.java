@@ -38,14 +38,17 @@ public class welcomeActivity extends AppCompatActivity {
 
 
         //In welcomeActivity for testing purposes
-        Intent intent1 = new Intent(this, AlarmReceiver.class);
-        //small increments for testing purposes
-        long minute = 1000 * 60;
-        long hour = minute * 60;
-        long delay = minute;
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent1, 0);
-        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + delay, delay, pendingIntent);
+//        if (!AlarmReceiver.hasNotificationAlarm(getApplicationContext())) {
+//            AlarmReceiver.setNotificationAlarm(this);
+//        }
+//        Intent intent1 = new Intent(this, AlarmReceiver.class);
+//        //small increments for testing purposes
+//        long minute = 1000 * 60;
+//        long hour = minute * 60;
+//        long delay = minute;
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent1, 0);
+//        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+//        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + delay, delay, pendingIntent);
 
     }
 

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="timeIncrement_array">
+<!--        the minute to hour options are only here for testing/display purposes-->
+<!--        They would be removed in an actual version of the app-->
+        <item>Minute</item>
+        <item>Half Hour</item>
+        <item>Hourly</item>
         <item>Daily</item>
         <item>Weekly</item>
         <item>Biweekly</item>
