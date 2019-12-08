@@ -91,8 +91,8 @@ public class NotificationIntentService extends IntentService {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID);
         builder.setSmallIcon(R.drawable.wilbur_placeholder);
-        builder.setContentTitle("PiggyBank notification title");
-        builder.setContentText("textContent");
+        builder.setContentTitle("Your spending summary is here");
+        builder.setContentText("click to open the app");
         builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
         builder.setAutoCancel(true);
 
