@@ -24,6 +24,15 @@
 
         <TableRow>
             <TextView
+                android:text="Notifications"/>
+            <Switch
+                android:id="@+id/notificationSwitch"
+                android:textOff="Off"
+                android:textOn="On"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
                 android:id="@+id/settings_timeIncrement"
                 android:text="Time Increment"/>
 

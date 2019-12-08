@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".summaryActivity"></activity>
+        <activity android:name=".summaryActivity" />
+
         <activity android:name=".settingsActivity" />
         <activity android:name=".welcomeActivity" />
         <activity android:name=".profileActivity" />
@@ -20,6 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".AlarmReceiver" />
+
+        <service
+            android:name=".NotificationIntentService"
+            android:exported="false"></service>
     </application>
+
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
 </manifest>
