@@ -59,7 +59,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
-
+    <Button
+        android:id="@+id/summary_button"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View your summary here"
+        android:textAllCaps="true"
+        android:background="@color/darkPinkish"
+        android:textAlignment="center"
+        android:onClick="goToSettings"
+        app:layout_constraintTop_toBottomOf="@id/settings_button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
