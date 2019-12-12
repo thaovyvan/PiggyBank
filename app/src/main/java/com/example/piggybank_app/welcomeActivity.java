@@ -93,6 +93,11 @@ public class welcomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToSummary(View view) {
+        Intent intent = new Intent(this, summaryActivity.class);
+        startActivity(intent);
+    }
+
     public static ArrayList<String> getTransactions(JSONArray jsonArray) throws JSONException {
 
         ArrayList<String> returnList = new ArrayList<String>();
