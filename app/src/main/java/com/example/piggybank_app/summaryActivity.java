@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.Locale;
 
 public class summaryActivity extends AppCompatActivity {
     private TextView monthlySpending;
@@ -24,28 +28,23 @@ public class summaryActivity extends AppCompatActivity {
         photoPercentage = findViewById(R.id.photoPercentage);
         gamesPercentage = findViewById(R.id.gamesPercentage);
 
-        updateSummaryLayout(0,0,0);
+        updateSummaryLayout(80, 15, 5);
     }
 
     /**
-     *
      * @param social percentage of spending on social media
-     * @param games percentage of spending on games
+     * @param games  percentage of spending on games
      * @param photos percentage of spending on photos/videos
      */
-    public void updateSummaryLayout(int social, int games, int photos){
-        ConstraintLayout  constraintLayout = new ConstraintLayout(this);
-        LinearLayout socialGroup = findViewById(R.id.socialMediaGroup);
-        LinearLayout gamesGroup = findViewById(R.id.photoGroup);
-        LinearLayout photosGroup = findViewById(R.id.gamesGroup);
+    public void updateSummaryLayout(int social, int games, int photos) {
+        TextView socialPercentage = findViewById(R.id.socialMediaPercentage);
+        TextView gamesPercentage = findViewById(R.id.gamesPercentage);
+        TextView photoPercentage = findViewById(R.id.photoPercentage);
 
-        ConstraintSet constraintSet = new ConstraintSet();
-//        constraintSet.clone(this, R.layout.activity_summary);
-        constraintSet.clone(constraintLayout);
-        constraintSet.connect(R.id.gamesGroup, ConstraintSet.TOP, R.id.summaryTable, ConstraintSet.BOTTOM);
-        constraintSet.connect(R.id.socialMediaGroup, ConstraintSet.TOP, R.id.gamesGroup, ConstraintSet.BOTTOM);
-        constraintSet.connect(R.id.photoGroup, ConstraintSet.TOP, R.id.photoGroup, ConstraintSet.BOTTOM);
-        constraintSet.applyTo(constraintLayout);
+        socialPercentage.setText(String.format(Locale.US,"%d%%", social));
+        gamesPercentage.setText(String.format(Locale.US,"%d%%", games));
+        photoPercentage.setText(String.format(Locale.US,"%d%%", photos));
 
+        //meant to rearrange the ViewGroups/LinearLayouts that contain the different types of spending so the largest percentages are at the top
     }
 }
