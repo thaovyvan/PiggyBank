@@ -37,47 +37,155 @@
         </TableRow>
     </TableLayout>
 
-    <TableLayout
-        android:id="@+id/summary_percentageTable"
+    <LinearLayout
+        android:id="@+id/socialMediaGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/summaryTable"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <TableRow>
-            <TextView
-                android:id="@+id/socialMediaPercentage"
-                android:text="80%"
-                android:textSize="36sp"
-                android:textAlignment="center"/>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/socialMediaPercentage"
+            android:text="80%"
+            android:textSize="36sp"
+            android:textAlignment="center"/>
+<!--        app:layout_constraintTop_toBottomOf="@id/summaryTable"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"/>-->
 
-            <TextView
-                android:id="@+id/photoPercentage"
-                android:text="5%"
-                android:textSize="36sp"
-                android:textAlignment="center"/>
 
-            <TextView
-                android:id="@+id/gamesPercentage"
-                android:text="15%"
-                android:textSize="36sp"
-                android:textAlignment="center"/>
-        </TableRow>
+        <TextView
+            android:id="@+id/socialMediaText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Social Media"
+            android:textSize="24sp"/>
+<!--            app:layout_constraintTop_toBottomOf="@id/socialMediaPercentage"-->
+<!--            app:layout_constraintLeft_toLeftOf="@id/socialMediaPercentage"-->
+<!--            app:layout_constraintRight_toRightOf="@id/socialMediaPercentage"/>-->
 
-        <TableRow>
-            <TextView
-                android:text="Social Media"
-                android:textSize="24sp"/>
+    </LinearLayout>
 
-            <TextView
-                android:text="Photos/Videos"
-                android:textSize="24sp"/>
+    <LinearLayout
+        android:id="@+id/photoGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/socialMediaGroup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
-            <TextView
-                android:text="Games"
-                android:textSize="24sp"/>
-        </TableRow>
-    </TableLayout>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/photoPercentage"
+            android:text="5%"
+            android:textSize="36sp"
+            android:textAlignment="center"/>
+    <!--        app:layout_constraintTop_toBottomOf="@id/socialMediaText"-->
+    <!--        app:layout_constraintRight_toLeftOf="@id/gamesPercentage"/>-->
+
+        <TextView
+            android:id="@+id/photoText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Photos/Videos"
+            android:textSize="24sp"/>
+<!--            app:layout_constraintTop_toBottomOf="@id/photoPercentage"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/gamesText"/>-->
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/gamesGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/photoGroup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/gamesPercentage"
+            android:text="15%"
+            android:textSize="36sp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/socialMediaText"
+            app:layout_constraintLeft_toRightOf="@id/photoPercentage"/>
+
+        <TextView
+            android:id="@+id/gamesText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Games"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/gamesPercentage"
+            app:layout_constraintLeft_toRightOf="@id/photoPercentage"/>
+
+    </LinearLayout>
+
+
+
+    <!--    <TextView-->
+<!--        android:id="@+id/photoText"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:text="Photos/Videos"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/photoPercentage"-->
+<!--        app:layout_constraintRight_toLeftOf="@id/gamesText"/>-->
+
+
+<!--    <TableLayout-->
+<!--        android:id="@+id/summary_percentageTable"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/summaryTable"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent">-->
+
+<!--        <TableRow>-->
+<!--            <TextView-->
+<!--                android:id="@+id/socialMediaPercentage"-->
+<!--                android:text="80%"-->
+<!--                android:textSize="36sp"-->
+<!--                android:textAlignment="center"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/photoPercentage"-->
+<!--                android:text="5%"-->
+<!--                android:textSize="36sp"-->
+<!--                android:textAlignment="center"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/gamesPercentage"-->
+<!--                android:text="15%"-->
+<!--                android:textSize="36sp"-->
+<!--                android:textAlignment="center"/>-->
+<!--        </TableRow>-->
+
+<!--        <TableRow>-->
+<!--            <TextView-->
+<!--                android:text="Social Media"-->
+<!--                android:textSize="24sp"/>-->
+
+<!--            <TextView-->
+<!--                android:text="Photos/Videos"-->
+<!--                android:textSize="24sp"/>-->
+
+<!--            <TextView-->
+<!--                android:text="Games"-->
+<!--                android:textSize="24sp"/>-->
+<!--        </TableRow>-->
+<!--    </TableLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
