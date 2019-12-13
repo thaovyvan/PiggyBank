@@ -25,8 +25,11 @@ import org.json.JSONObject;
 //import org.json.simple.parser.JSONParser;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,14 +43,14 @@ public class welcomeActivity extends AppCompatActivity {
     private PendingIntent alarmIntent;
 
     private String CHANNEL_ID = "PiggyBank";
-
-    JSONObject object;
-    JSONObject getObject;
     JSONArray getArray;
 
     Object obj;
 
+    String jsonString;
+
     ArrayList<String> transactions;
+    ArrayList<String> recentTransactions;
 
     MyRecyclerViewAdapter adapter;
 
@@ -62,30 +65,41 @@ public class welcomeActivity extends AppCompatActivity {
         welcomeBackName = intent.getStringExtra("username");
         welcomeBackText.setText("Welcome back " + welcomeBackName);
 
-//        JSONParser parser = new JSONParser();
-//
-//        try {
-//            obj = parser.parse(new FileReader("transactions-json.json"));
-//            //object = new JSONObject("transactions-json.json");
-//            //getObject = object.getJSONObject("Transactions");
-//            //getArray = getObject.getJSONArray("TransactionsArray");
-//
-//            getArray = (JSONArray) obj;
-//            transactions = getTransactions(getArray);
-//        } catch (Exception e) {}
+        jsonString = loadJSONFromAsset();
+        try {
+            getArray = new JSONArray(jsonString);
+            transactions = getTransactions(getArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-        transactions = new ArrayList<>();
-        transactions.add("Google Play Store, $0.99");
+        recentTransactions = new ArrayList<>(transactions.subList(0,5));
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.welcomeRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, transactions);
+        adapter = new MyRecyclerViewAdapter(this, recentTransactions);
         recyclerView.setAdapter(adapter);
 
 
 
 
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getApplicationContext().getAssets().open("transactions-json.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     public void goToSettings(View view) {
@@ -103,10 +117,11 @@ public class welcomeActivity extends AppCompatActivity {
         ArrayList<String> returnList = new ArrayList<String>();
         for (int i=0; i<jsonArray.length(); i++) {
             JSONObject currObject = jsonArray.getJSONObject(i);
+            String date = currObject.getString("date");
             String transactionName = currObject.getString("name");
             String transactionCost = currObject.getString("cost");
 
-            String finalString = String.format("%s, %s", transactionName, transactionCost);
+            String finalString = String.format("%s:   %s, %s", date, transactionName, transactionCost);
             returnList.add(finalString);
         }
 
