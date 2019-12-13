@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, welcomeActivity.class);
         usernameInput = usernameEdit.getText().toString();
         passwordInput = passwordEdit.getText().toString();
+        if(usernameInput.length() == 0 || passwordInput.length() == 0){
+            Toast.makeText(getApplicationContext(), "You must enter a Username and Password", Toast.LENGTH_SHORT).show();
+            return;
+        }
         create_user(usernameInput, passwordInput);
         intent.putExtra("username", usernameInput);
         intent.putExtra("password", passwordInput);
