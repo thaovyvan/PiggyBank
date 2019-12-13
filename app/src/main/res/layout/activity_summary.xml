@@ -67,14 +67,17 @@
 
         <TableRow>
             <TextView
+                android:id="@+id/firstPercentLabel"
                 android:text="Social Media"
                 android:textSize="24sp"/>
 
             <TextView
+                android:id="@+id/secondPercentLabel"
                 android:text="Photos/Videos"
                 android:textSize="24sp"/>
 
             <TextView
+                android:id="@+id/thirdPercentLabel"
                 android:text="Games"
                 android:textSize="24sp"/>
         </TableRow>

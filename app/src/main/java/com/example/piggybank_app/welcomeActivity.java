@@ -44,11 +44,7 @@ public class welcomeActivity extends AppCompatActivity {
 
     private String CHANNEL_ID = "PiggyBank";
     JSONArray getArray;
-
-    Object obj;
-
     String jsonString;
-
     ArrayList<String> transactions;
     ArrayList<String> recentTransactions;
 
@@ -80,10 +76,6 @@ public class welcomeActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyRecyclerViewAdapter(this, recentTransactions);
         recyclerView.setAdapter(adapter);
-
-
-
-
     }
 
     public String loadJSONFromAsset() {
