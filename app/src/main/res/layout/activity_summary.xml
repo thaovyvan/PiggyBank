@@ -69,17 +69,20 @@
             <TextView
                 android:id="@+id/firstPercentLabel"
                 android:text="Social Media"
-                android:textSize="24sp"/>
+                android:layout_margin="5dp"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/secondPercentLabel"
                 android:text="Photos/Videos"
-                android:textSize="24sp"/>
+                android:layout_margin="5dp"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/thirdPercentLabel"
                 android:text="Games"
-                android:textSize="24sp"/>
+                android:layout_margin="5dp"
+                android:textSize="20sp"/>
         </TableRow>
     </TableLayout>
 

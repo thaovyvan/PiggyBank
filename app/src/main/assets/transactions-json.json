@@ -6,6 +6,12 @@
     "type": "Storage"
   },
   {
+    "name": "Uber Eats",
+    "cost": "$76.99",
+    "date": "12/10/19",
+    "type": "Food & Drink"
+  },
+  {
     "name": "VSCO",
     "cost": "$2.99",
     "date": "12/3/19",

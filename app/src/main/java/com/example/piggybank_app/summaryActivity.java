@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Set;
 
 public class summaryActivity extends AppCompatActivity {
     private TextView monthlySpending;
@@ -46,39 +47,50 @@ public class summaryActivity extends AppCompatActivity {
             String tempMonthly = get_monthly(getArray);
             monthlySpending.setText(tempMonthly);
 
-            //percentages = get_percentages(getArray);
+            percentages = get_percentages(getArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-//
-//        float max = Collections.max(percentages.values());
-//        int percentTemp = (int) max*100;
-//        for (String key : percentages.keySet()) {
-//            if (percentages.get(key) == max) {
-//                firstPercentage.setText(percentTemp + "%");
-//                firstPercent.setText(key);
-//                percentages.remove(key);
-//            }
-//        }
-//
-//        max = Collections.max(percentages.values());
-//        percentTemp = (int) max*100;
-//        for (String key : percentages.keySet()) {
-//            if (percentages.get(key) == max) {
-//                secondPercentage.setText(percentTemp + "%");
-//                secondPercent.setText(key);
-//                percentages.remove(key);
-//            }
-//        }
-//
-//        max = Collections.max(percentages.values());
-//        percentTemp = (int) max*100;
-//        for (String key : percentages.keySet()) {
-//            if (percentages.get(key) == max) {
-//                thirdPercentage.setText(percentTemp + "%");
-//                thirdPercent.setText(key);
-//            }
-//        }
+
+        float max = Collections.max(percentages.values());
+        float percentTemp = max*100;
+        ArrayList<String> tempSet = new ArrayList<String>(percentages.keySet());
+        for (int i=0; i<tempSet.size(); i++) {
+            String key = tempSet.get(i);
+            if (percentages.get(key) == max) {
+                percentTemp = (int) percentTemp;
+                firstPercentage.setText(percentTemp + "%");
+                firstPercent.setText(key);
+                percentages.remove(key);
+            }
+        }
+
+        System.out.println(percentages.values());
+
+        max = Collections.max(percentages.values());
+        percentTemp = max*100;
+        tempSet = new ArrayList<String>(percentages.keySet());
+        for (int i=0; i<tempSet.size(); i++) {
+            String key = tempSet.get(i);
+            if (percentages.get(key) == max) {
+                percentTemp = (int) percentTemp;
+                secondPercentage.setText(percentTemp + "%");
+                secondPercent.setText(key);
+                percentages.remove(key);
+            }
+        }
+
+        max = Collections.max(percentages.values());
+        percentTemp = max*100;
+        tempSet = new ArrayList<String>(percentages.keySet());
+        for (int i=0; i<tempSet.size(); i++) {
+            String key = tempSet.get(i);
+            if (percentages.get(key) == max) {
+                percentTemp = (int) percentTemp;
+                thirdPercentage.setText(percentTemp + "%");
+                thirdPercent.setText(key);
+            }
+        }
     }
 
     public String loadJSONFromAsset() {
@@ -112,32 +124,35 @@ public class summaryActivity extends AppCompatActivity {
         return returnString;
     }
 
-//    public HashMap<String, Float> get_percentages(JSONArray array) throws JSONException {
-//        float total = array.length()-1;
-//        HashMap<String, Float> returnMap = new HashMap<String, Float>();
-//        HashMap<String, Integer> frequencyTransactions = new HashMap<String, Integer>();
-//        for (int i=0; i<array.length(); i++) {
-//            JSONObject currObject = array.getJSONObject(i);
-//            String type = currObject.getString("type");
-//            if (frequencyTransactions.containsKey(type)) {
-//                Integer val = frequencyTransactions.get(type);
-//                frequencyTransactions.put(type, val + 1);
-//            }
-//            else {
-//                frequencyTransactions.put(type, 1);
-//            }
-//        }
-//        for (int i=0; i<3; i++) {
-//            int max = Collections.max(frequencyTransactions.values());
-//            System.out.println(frequencyTransactions.keySet() + "BANANA");
-//            for (String key : frequencyTransactions.keySet()) {
-//                if (frequencyTransactions.get(key) == max) {
-//                    returnMap.put(key, max/total);
-//                    frequencyTransactions.remove(key);
-//                }
-//            }
-//        }
-//        System.out.println("PEACHES AND MANGO" + returnMap);
-//        return returnMap;
-//    }
+    public HashMap<String, Float> get_percentages(JSONArray array) throws JSONException {
+        float total = array.length()-1;
+        HashMap<String, Float> returnMap = new HashMap<String, Float>();
+        HashMap<String, Integer> frequencyTransactions = new HashMap<String, Integer>();
+        ArrayList<String> types = new ArrayList<String>();
+        for (int i=0; i<array.length(); i++) {
+            JSONObject currObject = array.getJSONObject(i);
+            String type = currObject.getString("type");
+            if (frequencyTransactions.containsKey(type)) {
+                Integer val = frequencyTransactions.get(type);
+                frequencyTransactions.put(type, val + 1);
+            }
+            else {
+                frequencyTransactions.put(type, 1);
+                types.add(type);
+            }
+        }
+        for (int i=0; i<3; i++) {
+            int max = Collections.max(frequencyTransactions.values());
+            for (int j=0; j<types.size(); j++) {
+                String key = types.get(j);
+                if (frequencyTransactions.get(key) == max) {
+                    returnMap.put(key, max/total);
+                    frequencyTransactions.remove(key);
+                    types.remove(key);
+                }
+            }
+        }
+        System.out.println("PEACHES AND MANGO" + returnMap);
+        return returnMap;
+    }
 }
