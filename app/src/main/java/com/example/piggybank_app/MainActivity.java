@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
     public static String usernameInput;
     public static String passwordInput;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     EditText passwordEdit;
 
     private FirebaseAuth mAuth;
+
+    HashMap<String, String> users = new HashMap<String, String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
         if(usernameInput.length() == 0 || passwordInput.length() == 0){
             Toast.makeText(getApplicationContext(), "You must enter a Username and Password", Toast.LENGTH_SHORT).show();
             return;
+        }
+        if (!users.containsKey(usernameInput)) {
+            users.put(usernameInput, passwordInput);
+            System.out.println(users.toString());
+        }
+        else {
+            if (passwordInput != users.get(usernameInput)) {
+                Toast.makeText(getApplicationContext(), "Wrong password", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
         create_user(usernameInput, passwordInput);
         intent.putExtra("username", usernameInput);
